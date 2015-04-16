@@ -24,7 +24,7 @@ class IrcBot extends Adapter
 
     for str in strings
       logger.debug "#{target} #{str}"
-      @bot.adapter.emit 'say', target, str
+      @emit 'say', target, str
       @bot.say target, str
 
   sendPrivate: (envelope, strings...) ->
@@ -327,7 +327,7 @@ class IrcBot extends Adapter
         logger.info('Ignoring user: %s', from)
         # we'll ignore this message if it's from someone we want to ignore
         return
-      
+
       if not process.env.HUBOT_IRC_PRIVATE or process.env.HUBOT_IRC_IGNOREINVITE
         bot.join channel
 
