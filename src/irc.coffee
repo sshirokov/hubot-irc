@@ -24,7 +24,7 @@ class IrcBot extends Adapter
 
     for str in strings
       logger.debug "#{target} #{str}"
-      @emit 'say', target, str
+      @emit 'say', envelope, str
       @bot.say target, str
 
   sendPrivate: (envelope, strings...) ->
